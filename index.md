@@ -2,6 +2,11 @@
 data:
   libraryCategories: []
   verificationCategories:
+  - name: String
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: String/z_algorithm.test.cpp
+      title: String/z_algorithm.test.cpp
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
