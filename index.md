@@ -2,6 +2,11 @@
 data:
   libraryCategories: []
   verificationCategories:
+  - name: Segtree
+    pages:
+    - icon: ':x:'
+      path: Segtree/lazy_segtree.test.cpp
+      title: Segtree/lazy_segtree.test.cpp
   - name: String
     pages:
     - icon: ':heavy_check_mark:'
