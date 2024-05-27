@@ -27,10 +27,12 @@ struct Segtree {
     // Should not affect the result when merging with another Calc
     Calc NEUTRAL_CALC = {numeric_limits<int>::max(), 0};
 
-    Calc mod_op(Calc& a, Mod& b) { return {a.minn + b.added, a.mincnt}; }
+    Calc mod_op(const Calc& a, const Mod& b) {
+        return {a.minn + b.added, a.mincnt};
+    }
 
     // Merge two segments
-    Calc calc_op(Calc& a, Calc& b) {
+    Calc calc_op(const Calc& a, const Calc& b) {
         if (a.minn == b.minn) {
             return {a.minn, a.mincnt + b.mincnt};
         }
@@ -40,8 +42,8 @@ struct Segtree {
         return {b.minn, b.mincnt};
     }
 
-    void apply_mod_op(Calc& a, Mod& b) { a = mod_op(a, b); }
-    void apply_mod_op(Mod& a, Mod& b) { a = {a.added + b.added}; }
+    void apply_mod_op(Calc& a, const Mod& b) { a = mod_op(a, b); }
+    void apply_mod_op(Mod& a, const Mod& b) { a = {a.added + b.added}; }
 
     void build(int x, int lx, int rx, const vector<Calc>& a) {
         if (rx == lx + 1) {
@@ -62,7 +64,7 @@ struct Segtree {
         build(0, 0, size, a);
     }
 
-    void modify(int l, int r, Mod v, int x, int lx, int rx) {
+    void modify(int l, int r, const Mod& v, int x, int lx, int rx) {
         if (r <= lx || l >= rx) return;
         if (lx >= l && rx <= r) {
             apply_mod_op(mods[x], v);
@@ -76,7 +78,7 @@ struct Segtree {
         apply_mod_op(calcs[x], mods[x]);
     }
 
-    void modify(int l, int r, Mod v) { modify(l, r, v, 0, 0, size); }
+    void modify(int l, int r, const Mod& v) { modify(l, r, v, 0, 0, size); }
 
     Calc calc(int l, int r, int x, int lx, int rx) {
         if (r <= lx || l >= rx) return NEUTRAL_CALC;
