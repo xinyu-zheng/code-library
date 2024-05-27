@@ -2,6 +2,11 @@
 data:
   libraryCategories: []
   verificationCategories:
+  - name: DSU
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: DSU/dsu.test.cpp
+      title: DSU/dsu.test.cpp
   - name: Segtree
     pages:
     - icon: ':x:'
