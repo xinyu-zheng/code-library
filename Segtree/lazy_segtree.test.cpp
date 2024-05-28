@@ -12,6 +12,8 @@ using namespace std;
 
 struct Mod {
     int added = 0;
+
+    bool operator==(const Mod&) const = default;
 };
 
 struct Calc {
@@ -23,6 +25,7 @@ struct Segtree {
     int size;
     vector<Mod> mods;
     vector<Calc> calcs;
+    // Should not affect the result when merging with another Calc
     Mod NEUTRAL_MOD = {0};
     // Should not affect the result when merging with another Calc
     Calc NEUTRAL_CALC = {numeric_limits<int>::max(), 0};
