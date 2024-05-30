@@ -45,8 +45,13 @@ struct Segtree {
         return {b.minn, b.mincnt};
     }
 
-    void apply_mod_op(Calc& a, const Mod& b) { a = mod_op(a, b); }
-    void apply_mod_op(Mod& a, const Mod& b) { a = {a.added + b.added}; }
+    void apply_mod_op(Calc& a, const Mod& b) {
+        a = mod_op(a, b); 
+    }
+    
+    void apply_mod_op(Mod& a, const Mod& b) {
+        a = {a.added + b.added};
+    }
 
     void build(int x, int lx, int rx, const vector<Calc>& a) {
         if (rx == lx + 1) {
