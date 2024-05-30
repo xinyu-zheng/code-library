@@ -9,7 +9,7 @@ data:
       title: DSU/dsu.test.cpp
   - name: Segtree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Segtree/lazy_segtree.test.cpp
       title: Segtree/lazy_segtree.test.cpp
   - name: String
